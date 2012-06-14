@@ -13,4 +13,10 @@ Rectangle {
         }
         Component.onCompleted: console.debug("topMargin: "+anchors.topMargin)
     }
+
+    Timer {
+        running: true
+        interval: 6000
+        onTriggered: Qt.quit()
+    }
 }

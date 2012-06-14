@@ -4,6 +4,8 @@
 #include "qmlapplicationviewer.h"
 
 class QKeyEvent;
+class QShowEvent;
+class QEvent;
 
 class Container : public QmlApplicationViewer
 {
@@ -15,10 +17,14 @@ public:
     ~Container();
 
 private:
+    bool eventFilter(QObject *, QEvent *event);
+    virtual bool event(QEvent *event);
     virtual void keyPressEvent(QKeyEvent *event);
     virtual void keyReleaseEvent (QKeyEvent *event);
 
-    virtual bool eventFilter(QObject *, QEvent *);
+private slots:
+    void onStartup();
+    void onExit();
 };
 
 #endif // CONTAINER_H
