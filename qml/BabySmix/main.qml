@@ -1,8 +1,8 @@
 import QtQuick 1.0
 
 Rectangle {
-    width: 100
-    height: 100
+    width: rootWidth ? rootWidth : 0
+    height: rootHeight ? rootHeight : 0
     Text {
         text: qsTr("Press Alt+F4 to quit.")
         anchors {
@@ -12,11 +12,5 @@ Rectangle {
             leftMargin: parent.width * 0.01
         }
         Component.onCompleted: console.debug("topMargin: "+anchors.topMargin)
-    }
-
-    Timer {
-        running: true
-        interval: 6000
-        onTriggered: Qt.quit()
     }
 }

@@ -17,14 +17,16 @@ public:
     ~Container();
 
 private:
-    bool eventFilter(QObject *, QEvent *event);
-    virtual bool event(QEvent *event);
     virtual void keyPressEvent(QKeyEvent *event);
     virtual void keyReleaseEvent (QKeyEvent *event);
+    virtual QSize sizeHint() const;
+
+    void updateSize();
 
 private slots:
     void onStartup();
     void onExit();
+    void onStatusChanged(QDeclarativeView::Status status);
 };
 
 #endif // CONTAINER_H
