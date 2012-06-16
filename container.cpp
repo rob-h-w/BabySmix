@@ -8,6 +8,8 @@
 #include <QStackedLayout>
 #include <QDeclarativeView>
 #include <QDeclarativeContext>
+#include <QDeclarativeItem>
+#include <QDeclarativeProperty>
 #include <QDebug>
 
 #if defined(Q_WS_X11)
@@ -55,13 +57,22 @@ void Container::keyReleaseEvent(QKeyEvent *event)
     case Qt::Key_F4:
         if (event->modifiers() & Qt::AltModifier) {
             exit(0);
-        }
+        } // Intentional dropthrough.
     default:{
         if (event->isAutoRepeat()) {
+            // Ignore autorepeats.
             break;
         }
-        qDebug() << event->text();
-        event->accept();
+
+        bool ok;
+        QMetaMethod slot = onKeyPressedSlot(ok);
+        if (ok) {
+            slot.invoke(rootObject(),
+                        Qt::AutoConnection,
+                        Q_ARG(QVariant,
+                              event->text()));
+            event->accept();
+        }
         break;
     }
     }
@@ -87,6 +98,46 @@ QSize Container::sizeHint() const
     return QSize(maxWidth, maxHeight);
 }
 
+void Container::updateSize()
+{
+    // Resize the root widget.
+    QDeclarativeContext *context = rootContext();
+    if (!context) {
+        return;
+    }
+
+    QSize size = sizeHint();
+    context->setContextProperty("rootWidth", size.width());
+    context->setContextProperty("rootHeight", size.height());
+}
+
+QMetaMethod Container::onKeyPressedSlot(bool &ok) const
+{
+    ok = false;
+    QMetaMethod slot;
+    // Get the root object.
+    QDeclarativeItem *root = qobject_cast<QDeclarativeItem *>(rootObject());
+    if (!root) {
+        return slot;
+    }
+
+    const QMetaObject *meta = root->metaObject();
+    if (!meta) {
+        return slot;
+    }
+
+    const int index = meta->indexOfMethod("onKeyPressed(QVariant)");
+    if (index == -1) {
+        return slot;
+    }
+
+    slot = meta->method(index);
+
+    ok = slot.methodType() == QMetaMethod::Slot;
+
+    return slot;
+}
+
 void Container::onStartup()
 {
 #if defined(Q_WS_X11)
@@ -95,6 +146,10 @@ void Container::onStartup()
     Qt::HANDLE winHandle = QX11Info::appRootWindow(info.screen());
     XGrabKeyboard(display, winHandle, true, GrabModeAsync, GrabModeAsync, CurrentTime);
 #endif
+
+    // Filling the screen doesn't function well in some X11 environments - explicitly set the size
+    // using global context variables here.
+    updateSize();
 }
 
 void Container::onExit()
@@ -119,19 +174,6 @@ void Container::onStatusChanged(QDeclarativeView::Status status)
     default:
         break;
     }
-}
-
-void Container::updateSize()
-{
-    // Resize the root widget.
-    QDeclarativeContext *context = rootContext();
-    if (!context) {
-        return;
-    }
-
-    QSize size = sizeHint();
-    context->setContextProperty("rootWidth", size.width());
-    context->setContextProperty("rootHeight", size.height());
 }
 #if defined(Q_WS_X11)
 #   define Status = OLD_STATUS

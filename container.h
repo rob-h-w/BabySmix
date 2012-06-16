@@ -3,6 +3,8 @@
 
 #include "qmlapplicationviewer.h"
 
+#include <QVariant>
+
 class QKeyEvent;
 class QShowEvent;
 class QEvent;
@@ -22,6 +24,7 @@ private:
     virtual QSize sizeHint() const;
 
     void updateSize();
+    QMetaMethod onKeyPressedSlot(bool &ok) const;
 
 private slots:
     void onStartup();

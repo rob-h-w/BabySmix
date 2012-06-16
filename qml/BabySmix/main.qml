@@ -1,6 +1,10 @@
 import QtQuick 1.0
 
 Rectangle {
+    function onKeyPressed(key) {
+        console.debug("Declarative environment received \""+key+"\"")
+    }
+
     width: rootWidth ? rootWidth : 0
     height: rootHeight ? rootHeight : 0
     Text {
@@ -11,6 +15,5 @@ Rectangle {
             topMargin: parent.height * 0.01
             leftMargin: parent.width * 0.01
         }
-        Component.onCompleted: console.debug("topMargin: "+anchors.topMargin)
     }
 }
