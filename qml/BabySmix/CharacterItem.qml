@@ -11,6 +11,5 @@ ContentItem {
         font.bold: true
         style: Text.Outline
         styleColor: "black"
-        Component.onCompleted: console.debug("color: "+color+", height: "+font.pixelSize)
     }
 }
