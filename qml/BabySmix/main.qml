@@ -1,8 +1,10 @@
 import QtQuick 1.0
 
 Rectangle {
+    id: root
+
     function onKeyPressed(key) {
-        console.debug("Declarative environment received \""+key+"\"")
+        contentComponent.createObject(root, { "text": key })
     }
 
     width: rootWidth ? rootWidth : 0
@@ -14,6 +16,14 @@ Rectangle {
             left: parent.left
             topMargin: parent.height * 0.01
             leftMargin: parent.width * 0.01
+        }
+    }
+
+    Component {
+        id: contentComponent
+        ContentItem {
+            x: Math.random() * rootWidth
+            y: Math.random() * rootHeight
         }
     }
 }
