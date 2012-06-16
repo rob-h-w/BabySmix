@@ -4,7 +4,9 @@ Rectangle {
     id: root
 
     function onKeyPressed(key) {
-        contentComponent.createObject(root, { "text": key })
+        var characterList = qsTr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        if (characterList.indexOf(key) != -1)
+            characterComponent.createObject(root, { "text": key })
     }
 
     width: rootWidth ? rootWidth : 0
@@ -20,8 +22,8 @@ Rectangle {
     }
 
     Component {
-        id: contentComponent
-        ContentItem {
+        id: characterComponent
+        CharacterItem {
             x: Math.random() * rootWidth
             y: Math.random() * rootHeight
         }
