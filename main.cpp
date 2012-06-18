@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
     viewer.setMainQmlFile(QLatin1String("qml/BabySmix/main.qml"));
     viewer.setResizeMode(QDeclarativeView::SizeRootObjectToView);
     viewer.showFullScreen();
+    viewer.activateWindow();
 
     return app.exec();
 }
