@@ -9,8 +9,24 @@ Rectangle {
             characterComponent.createObject(root, { "text": key })
     }
 
+    property bool started: false
+
     width: rootWidth ? rootWidth : 0
     height: rootHeight ? rootHeight : 0
+
+    MouseArea {
+        id:mouseArea
+
+        anchors.fill: parent
+
+        onClicked: root.started = true
+    }
+
+    ClickMe {
+        visible: !root.started
+        text: qsTr("Click anywhere to begin!")
+    }
+
     Text {
         text: qsTr("Press Alt+F4 to quit.")
         z: 1000
