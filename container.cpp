@@ -10,7 +10,6 @@
 #include <QDeclarativeContext>
 #include <QDeclarativeItem>
 #include <QDeclarativeProperty>
-#include <QDebug>
 
 #if defined(Q_WS_X11)
 #   include <QX11Info>
@@ -35,6 +34,13 @@ Container::Container(QWidget *parent) :
     setWindowFlags(
                   Qt::FramelessWindowHint
                 | Qt::WindowStaysOnTopHint);
+
+    QDeclarativeContext *context = rootContext();
+    if (!context) {
+        return;
+    }
+
+    context->setContextProperty("version", QCoreApplication::applicationVersion());
 }
 #if defined(Q_WS_X11)
 #   define Status = OLD_STATUS

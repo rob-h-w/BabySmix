@@ -28,7 +28,7 @@ Rectangle {
     }
 
     Text {
-        text: qsTr("Press Alt+F4 to quit.")
+        text: qsTr("Version %0.\nPress Alt+F4 to quit.").arg(version)
         z: 1000
         anchors {
             top: parent.top

@@ -5,6 +5,7 @@ Rectangle {
 
     property alias text: message.text
     property int padding: 12
+    z: 100
     anchors.centerIn: parent
     width: childrenRect.width + 2 * padding
     height: childrenRect.height + 2 * padding
