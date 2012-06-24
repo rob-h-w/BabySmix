@@ -83,8 +83,14 @@ symbian {
         desktopfile.files = $${TARGET}_harmattan.desktop
         desktopfile.path = /usr/share/applications
         icon.files = $${TARGET}80.png
+        desktopfile.files = $${TARGET}_harmattan.desktop
+        desktopfile.path = /usr/share/applications
         icon.path = /usr/share/icons/hicolor/80x80/apps
     } else { # Assumed to be a Desktop Unix
+        desktopfile.files = $${TARGET}.desktop
+        desktopfile.path = /usr/share/applications
+        icon.files = $${TARGET}.svg
+        icon.path = /usr/share/icons
         copyCommand =
         for(deploymentfolder, DEPLOYMENTFOLDERS) {
             source = $$MAINPROFILEPWD/$$eval($${deploymentfolder}.source)
@@ -113,7 +119,7 @@ symbian {
             QMAKE_EXTRA_TARGETS += first copydeploymentfolders
         }
     }
-    installPrefix = /opt/$${TARGET}
+    installPrefix = /usr/$${TARGET}
     for(deploymentfolder, DEPLOYMENTFOLDERS) {
         item = item$${deploymentfolder}
         itemfiles = $${item}.files
