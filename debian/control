@@ -1,13 +1,14 @@
 Source: babysmix
 Section: games
-Priority: extra
-Maintainer: Rob Williamson <rob@robwilliamson.com>
-Build-Depends: debhelper (>= 8.0.0)
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Build-Depends: debhelper (>= 8.0.0), libqt4-dev, qt4-qmake, libx11-dev
 Standards-Version: 3.9.2
 Homepage: https://github.com/rob-h-w/BabySmix
 
 Package: babysmix
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-dev, qt4-qmake, cdbs
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Ubuntu targetted baby game based on and inspired by Scott Hanselman's much-loved Baby Smash! http://www.hanselman.com/babysmash/
- Ubuntu targetted baby game based on and inspired by Scott Hanselman's much-loved Baby Smash! http://www.hanselman.com/babysmash/. Used without permission. Please let me know if this is a problem for anyone, especially if you're Scott H!
+ This little program locks the keyboard so that small children are able to tap away on the keyboard without accidentally deleting your root.
+ References to BabySmash are used without permission. Please let me know if this is a problem for anyone, especially if you're Scott H!

@@ -25,5 +25,16 @@ SOURCES += main.cpp\
 
 HEADERS  += container.h
 
+!symbian: !win32: unix: isEmpty(MEEGO_VERSION_MAJOR): {
+    desktopfile.files = $${TARGET}.desktop
+    desktopfile.path = /usr/share/applications
+    icon.files = $${TARGET}.svg
+    icon.path = /usr/share/icons/hicolor/scalable/apps
+# /usr/share/icons/hicolor/16x16/apps
+# /usr/share/icons/hicolor/22x22/apps
+# /usr/share/icons/hicolor/24x24/apps
+# /usr/share/icons/hicolor/32x32/apps
+}
+
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
