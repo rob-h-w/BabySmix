@@ -1,5 +1,5 @@
-babysmix (1.0-0ubuntu1-1) oneiric; urgency=low
+babysmix (1.0-0ubuntu1-1) precise; urgency=low
 
- * Initial release of BabySmix - currently the most important features are keyboard lock-out and pretty graphics when the keys are pressed.
+  * Initial release of BabySmix - currently the most important features are keyboard lock-out and pretty graphics when the keys are pressed.
 
- -- Rob Williamson <rob@robwilliamson.com>  Sat, 23 Jun 2012 10:43:04 +0200
+ -- Rob Williamson (Developer extrordinaire) <rob@robwilliamson.com>  Sat, 23 Jun 2012 10:43:04 +0200
