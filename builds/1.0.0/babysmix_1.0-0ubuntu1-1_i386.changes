@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sat, 23 Jun 2012 10:43:04 +0200
+Source: babysmix
+Binary: babysmix
+Architecture: source i386
+Version: 1.0-0ubuntu1-1
+Distribution: precise
+Urgency: low
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Changed-By: Rob Williamson (Developer extrordinaire) <rob@robwilliamson.com>
+Description: 
+ babysmix   - Ubuntu targetted baby game based on and inspired by Scott Hanselm
+Changes: 
+ babysmix (1.0-0ubuntu1-1) precise; urgency=low
+ .
+   * Initial release of BabySmix - currently the most important features are keyboard lock-out and pretty graphics when the keys are pressed.
+Checksums-Sha1: 
+ b6cb2b9017c48945e3266ab39039283ed0ab3183 641 babysmix_1.0-0ubuntu1-1.dsc
+ 17a216ed6d58d6e467d6a38d2d6560b9d938a83e 72969 babysmix_1.0-0ubuntu1-1.tar.gz
+ 49e10f95e030f0f8c5d92f438593f62585845f5d 19208 babysmix_1.0-0ubuntu1-1_i386.deb
+Checksums-Sha256: 
+ ba3a7c09c35507eecade176662345768977aa326e22c0a1ac4ba396d0c689dc4 641 babysmix_1.0-0ubuntu1-1.dsc
+ d7bf9e9de5840ea9dfbfb6523d55453420aea4832b25065e513d76bec40b2bdf 72969 babysmix_1.0-0ubuntu1-1.tar.gz
+ c4a357255149211ad3618eaa72e9c3cfac9599c9652029d8e31a80e0aca2c9e1 19208 babysmix_1.0-0ubuntu1-1_i386.deb
+Files: 
+ d34c85dea11678cb2edd326dc052409c 641 games optional babysmix_1.0-0ubuntu1-1.dsc
+ af4b44f690ce6d262751ee1f1199f555 72969 games optional babysmix_1.0-0ubuntu1-1.tar.gz
+ ca2dc08b1731bee7990e9885cddb083a 19208 games optional babysmix_1.0-0ubuntu1-1_i386.deb
