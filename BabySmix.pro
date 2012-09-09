@@ -28,6 +28,7 @@ VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 DEFINES += APP_VERSION=\\\"$${VERSION}\\\"
 
 QT       += core gui
+CONFIG   += x11
 
 folder_01.source = qml/BabySmix
 folder_01.target = qml
