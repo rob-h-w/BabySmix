@@ -31,15 +31,15 @@ QT       += core gui
 CONFIG   += x11
 
 folder_01.source = qml/BabySmix
-folder_01.target = qml
+folder_01.target = extras.ubuntu.com/babysmix
 DEPLOYMENTFOLDERS = folder_01
 
 TARGET = BabySmix
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        container.cpp
+SOURCES += main.cpp \
+           container.cpp
 
 HEADERS  += container.h
 
@@ -47,7 +47,7 @@ HEADERS  += container.h
     desktopfile.files = $${TARGET}.desktop
     desktopfile.path = /usr/share/applications
     icon.files = $${TARGET}.svg
-    icon.path = /usr/share/icons/hicolor/scalable/apps
+    icon.path = opt/extras.ubuntu.com/babysmix/icons/hicolor/scalable/apps
 # /usr/share/icons/hicolor/16x16/apps
 # /usr/share/icons/hicolor/22x22/apps
 # /usr/share/icons/hicolor/24x24/apps
