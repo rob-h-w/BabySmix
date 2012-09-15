@@ -50,7 +50,7 @@ symbian {
         source = $$MAINPROFILEPWD/$$eval($${deploymentfolder}.source)
         source = $$replace(source, /, \\)
         sourcePathSegments = $$split(source, \\)
-        target = $$OUT_PWD/$$eval($${deploymentfolder}.target)/$$last(sourcePathSegments)
+        target = $$OUT_PWD/$$eval($${deploymentfolder}.target)
         target = $$replace(target, /, \\)
         target ~= s,\\\\\\.?\\\\,\\,
         !isEqual(source,$$target) {
@@ -96,7 +96,7 @@ symbian {
             }
             target = $$replace(target, \\\\, /)
             sourcePathSegments = $$split(source, /)
-            targetFullPath = $$target/$$last(sourcePathSegments)
+            targetFullPath = $$target
             targetFullPath ~= s,/\\.?/,/,
             !isEqual(source,$$targetFullPath) {
                 !isEmpty(copyCommand):copyCommand += &&
@@ -113,7 +113,7 @@ symbian {
             QMAKE_EXTRA_TARGETS += first copydeploymentfolders
         }
     }
-    installPrefix = /opt/$${TARGET}
+    installPrefix = /opt/extras.ubuntu.com
     for(deploymentfolder, DEPLOYMENTFOLDERS) {
         item = item$${deploymentfolder}
         itemfiles = $${item}.files
