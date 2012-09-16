@@ -1,0 +1,9 @@
+Need to use Debian tools because I can't work out how to make the Ubuntu suggested tools work unless I have a remote Bazaar archive somewhere.
+
+1 - create a folder in the form name-version (i.e. babysmix-1.0-0ubuntu1).
+2 - populate this with the contents of the BabySmix repo.
+3 - browse to the parent of babysmix-1.0-0ubuntu1.
+4 - dpkg-source -b babysmix-1.0-0ubuntu1/ - generates the dsc and tar.gz.
+5 - pbuilder-dist precise build babysmix_1.0-0ubuntu1-1.dsc - builds the package.
+
+Package ends up located at ~/pbuilder/precise_result
