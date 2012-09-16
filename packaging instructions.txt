@@ -7,3 +7,7 @@ Need to use Debian tools because I can't work out how to make the Ubuntu suggest
 5 - pbuilder-dist precise build babysmix_1.0-0ubuntu1-1.dsc - builds the package.
 
 Package ends up located at ~/pbuilder/precise_result
+
+Useful links:
+http://carlo17.home.xs4all.nl/howto/debian.html
+
