@@ -17,3 +17,6 @@
 
 # Bazaar files
 .bzr/
+
+# Build files
+builds/

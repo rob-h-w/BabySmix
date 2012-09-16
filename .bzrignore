@@ -17,3 +17,6 @@
 
 # Git files
 .git/
+
+# Build files
+builds/
