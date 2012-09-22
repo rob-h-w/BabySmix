@@ -39,9 +39,17 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-           container.cpp
+           container.cpp \
+           espeak.cpp
 
-HEADERS  += container.h
+HEADERS  += container.h \
+            dependencies/speak_lib.h \
+            espeak.h
+
+INCLUDEPATH += dependencies
+
+LIBS += -L/usr/lib /usr/lib/x86_64-linux-gnu/libespeak.a
+message($$LIBS)
 
 !symbian: !win32: unix: isEmpty(MEEGO_VERSION_MAJOR): {
     desktopfile.files = $${TARGET}.desktop
