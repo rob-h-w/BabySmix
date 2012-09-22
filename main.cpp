@@ -30,7 +30,11 @@ int main(int argc, char *argv[])
 
     Container viewer;
     viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
+#ifdef QT_NO_DEBUG
     viewer.setMainQmlFile(QLatin1String("/opt/extras.ubuntu.com/babysmix/qml/main.qml"));
+#else
+    viewer.setMainQmlFile(QLatin1String("babysmix/qml/main.qml"));
+#endif
     viewer.setResizeMode(QDeclarativeView::SizeRootObjectToView);
     viewer.showFullScreen();
     viewer.activateWindow();
