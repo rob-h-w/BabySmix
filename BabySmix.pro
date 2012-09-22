@@ -48,8 +48,7 @@ HEADERS  += container.h \
 
 INCLUDEPATH += dependencies
 
-LIBS += -L/usr/lib /usr/lib/x86_64-linux-gnu/libespeak.a
-message($$LIBS)
+LIBS += -L/usr/lib "/usr/lib/x86_64-linux-gnu/libespeak.so"
 
 !symbian: !win32: unix: isEmpty(MEEGO_VERSION_MAJOR): {
     desktopfile.files = $${TARGET}.desktop
