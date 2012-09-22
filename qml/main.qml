@@ -21,8 +21,12 @@ Rectangle {
 
     function onKeyPressed(key) {
         var characterList = qsTr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        var object
         if (characterList.indexOf(key) !== -1)
-            characterComponent.createObject(root, { "text": key })
+            object = characterComponent.createObject(root, { "text": key })
+
+        if (undefined !== object.initialize)
+            object.initialize()
     }
 
     property bool started: false

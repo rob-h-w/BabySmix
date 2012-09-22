@@ -20,6 +20,12 @@ ContentItem {
     id: root
 
     property alias text: text.text
+    function initialize() {
+        // Say the letter here.
+        narrator.say(root.text)
+        console.log("Saying "+root.text)
+    }
+
     Text {
         id: text
         color: Qt.rgba(Math.random(), Math.random(), Math.random(), 1.0)

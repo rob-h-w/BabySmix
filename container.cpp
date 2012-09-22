@@ -15,6 +15,7 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "container.h"
+#include "espeak.h"
 
 #include <QKeyEvent>
 #include <QLabel>
@@ -56,7 +57,10 @@ Container::Container(QWidget *parent) :
         return;
     }
 
+    ESpeak *narrator = new ESpeak(this);
+
     context->setContextProperty("version", QCoreApplication::applicationVersion());
+    context->setContextProperty("narrator", narrator);
 }
 #if defined(Q_WS_X11)
 #   define Status = OLD_STATUS
