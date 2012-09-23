@@ -18,6 +18,7 @@ ESpeak::ESpeak(QObject *parent) :
         languageData += languages;
         voice.languages = languageData.data();
         espeak_SetVoiceByProperties(&voice);
+        espeak_SetParameter(espeakRATE, 100, false);
     }
 
     ++refcount;
