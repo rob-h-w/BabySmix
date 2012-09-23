@@ -9,18 +9,21 @@
 class ESpeak : public QObject
 {
     Q_OBJECT
-    static uint refcount;
 public:
     explicit ESpeak(QObject *parent = 0);
     ~ESpeak();
 
-    void say(QChar character);
-    Q_INVOKABLE void say(QString character);
+    Q_INVOKABLE void say(QString string);
     
 signals:
     
 public slots:
     
+private:
+    void say(QChar character);
+
+private:
+    static uint refcount;
 };
 
 #endif // ESPEAK_H

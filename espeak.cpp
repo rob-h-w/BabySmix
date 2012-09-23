@@ -38,25 +38,20 @@ ESpeak::~ESpeak()
     }
 }
 
-void ESpeak::say(QChar character)
+void ESpeak::say(QString string)
 {
-    espeak_Char(character.unicode());
-}
-
-void ESpeak::say(QString character)
-{
-    switch(character.length())
+    switch(string.length())
     {
-    case 0:
+    case 0: // Nothing to say.
         return;
 
-    case 1:
-        say(character[0]);
+    case 1: // Say the character name.
+        say(string[0]);
         return;
     }
 
-    // TODO: say the string here.
-    const QByteArray data = character.toUtf8();
+    // Say the string here.
+    const QByteArray data = string.toUtf8();
     uint uid = 0;
     espeak_Synth(
                 data.constData(),
@@ -68,4 +63,9 @@ void ESpeak::say(QString character)
                 &uid,
                 0
                 );
+}
+
+void ESpeak::say(QChar character)
+{
+    espeak_Char(character.unicode());
 }
