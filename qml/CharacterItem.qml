@@ -23,7 +23,6 @@ ContentItem {
     function initialize() {
         // Say the letter here.
         narrator.say(root.text)
-        console.log("Saying "+root.text)
     }
 
     Text {
