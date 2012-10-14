@@ -1,6 +1,7 @@
 #include "espeak.h"
 #include "speak_lib.h"
 
+#include <QtCore>
 #include <QLocale>
 
 uint ESpeak::refcount = 0;
@@ -40,6 +41,11 @@ ESpeak::~ESpeak()
 }
 
 void ESpeak::say(QString string)
+{
+    QtConcurrent::run(this, &ESpeak::doSay, string);
+}
+
+void ESpeak::doSay(QString string)
 {
     switch(string.length())
     {

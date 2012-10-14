@@ -20,6 +20,7 @@ signals:
 public slots:
     
 private:
+    void doSay(QString string);
     void say(QChar character);
 
 private:
