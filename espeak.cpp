@@ -13,7 +13,7 @@ ESpeak::ESpeak(QObject *parent) :
     {
         espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 100, 0, 0);
         espeak_VOICE voice;
-        QString language = QLocale::system().bcp47Name();
+        QString language = QLocale::system().languageToString(QLocale::system().language());
         QByteArray languageData = language.toAscii();
         QByteArray languages = QByteArray(1, (char)0);
         languageData += languages;
