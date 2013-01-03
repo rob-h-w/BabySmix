@@ -22,7 +22,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 VER_MAJ = 1
-VER_MIN = 0
+VER_MIN = 1
 VER_PAT = 0
 VERSION = $${VER_MAJ}.$${VER_MIN}.$${VER_PAT}
 DEFINES += APP_VERSION=\\\"$${VERSION}\\\"
