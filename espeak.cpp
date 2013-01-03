@@ -7,7 +7,8 @@
 uint ESpeak::refcount = 0;
 
 ESpeak::ESpeak(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    queueLength(0)
 {
     if (0 == refcount)
     {
@@ -31,22 +32,38 @@ ESpeak::~ESpeak()
 
     if (0 == refcount)
     {
-        if (espeak_IsPlaying())
-        {
-            espeak_Cancel();
-        }
-
+        cancel();
         espeak_Terminate();
     }
 }
 
 void ESpeak::say(QString string)
 {
+    if (0 != queueLength || isPlaying())
+        return;
+
+    queueLength++;
     QtConcurrent::run(this, &ESpeak::doSay, string);
+}
+
+void ESpeak::cancel()
+{
+    if (isPlaying())
+    {
+        espeak_Cancel();
+    }
+
+    queueLength = 0;
+}
+
+bool ESpeak::isPlaying()
+{
+    return (bool)espeak_IsPlaying();
 }
 
 void ESpeak::doSay(QString string)
 {
+    queueLength--;
     switch(string.length())
     {
     case 0: // Nothing to say.
@@ -58,6 +75,7 @@ void ESpeak::doSay(QString string)
     }
 
     // Say the string here.
+    cancel();
     const QByteArray data = string.toUtf8();
     uint uid = 0;
     espeak_Synth(
@@ -74,5 +92,6 @@ void ESpeak::doSay(QString string)
 
 void ESpeak::say(QChar character)
 {
+    cancel();
     espeak_Char(character.unicode());
 }
