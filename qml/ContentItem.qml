@@ -15,6 +15,7 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import QtQuick 1.0
+import "utils.js" as U
 
 Rectangle {
     id: root
@@ -23,9 +24,13 @@ Rectangle {
     property alias lifespan: lifespanTimer.interval
     scale: 3
     opacity: 0
-    rotation: 360 * Math.random() - 180
+    rotation: U.randomPlusMinus(0, 180)
     width: childrenRect.width
     height: childrenRect.height
+    x: U.randomMinMax(0, parent.width - width)
+    y: U.randomMinMax(0, parent.height - height)
+    onXChanged: console.log("x: " + x)
+    onYChanged: console.log("y: " + y)
     color: "transparent"
     states: [
         State {

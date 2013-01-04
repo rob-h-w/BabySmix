@@ -15,6 +15,7 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import QtQuick 1.0
+import "utils.js" as U
 
 ShapeItem {
     id: root
@@ -22,7 +23,7 @@ ShapeItem {
     name: qsTr("Rectangle")
 
     Rectangle {
-        property int diff: (Math.random()*100 - 50)
+        property int diff: U.randomPlusMinus(10, 50)
 
         width: 100 + diff
         height: 100 - diff

@@ -81,3 +81,26 @@ function randomColor() {
 
     return returnValue
 }
+
+function randomMinMax(min, max)
+{
+    return Math.random()*(max - min) + min
+}
+
+function randomPlusMinus(min, max)
+{
+    var returnValue = Math.random()*max*2 - max
+    var positive = returnValue >= 0
+
+    if (Math.abs(returnValue) >= min)
+    {
+        return returnValue
+    }
+
+    if (positive)
+    {
+        return min
+    }
+
+    return -min
+}

@@ -81,24 +81,18 @@ Rectangle {
     Component {
         id: characterComponent
         CharacterItem {
-            x: Math.random() * rootWidth - width/2
-            y: Math.random() * rootHeight - height/2
         }
     }
 
     Component {
         id: squareComponent
         SquareItem {
-            x: Math.random() * rootWidth - width/2
-            y: Math.random() * rootHeight - height/2
         }
     }
 
     Component {
         id: rectangleComponent
         RectangleItem {
-            x: Math.random() * rootWidth - width/2
-            y: Math.random() * rootHeight - height/2
         }
     }
 }
