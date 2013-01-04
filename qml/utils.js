@@ -58,22 +58,18 @@ function randomColor() {
         returnValue.color = "darkRed"
         break
     case 9:
-        returnValue.name = qsTr("dark Yellow")
-        returnValue.color = "darkYellow"
-        break
-    case 10:
         returnValue.name = qsTr("gray")
         returnValue.color = "gray"
         break
-    case 11:
+    case 10:
         returnValue.name = qsTr("green")
         returnValue.color = "green"
         break
-    case 12:
+    case 11:
         returnValue.name = qsTr("magenta")
         returnValue.color = "magenta"
         break
-    case 13:
+    case 12:
         returnValue.name = qsTr("red")
         returnValue.color = "red"
         break

@@ -23,7 +23,8 @@ public slots:
     
 private:
     void doSay(QString string);
-    void say(QChar character);
+    void sayChar(QChar character);
+    void sayString(QString string);
 
 private:
     static uint refcount;

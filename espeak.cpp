@@ -3,6 +3,7 @@
 
 #include <QtCore>
 #include <QLocale>
+#include <QDebug>
 
 uint ESpeak::refcount = 0;
 
@@ -63,20 +64,35 @@ bool ESpeak::isPlaying()
 
 void ESpeak::doSay(QString string)
 {
-    queueLength--;
+    qDebug() << "+ESpeak::doSay, queueLength = " << queueLength << " isPlaying = " << isPlaying();
     switch(string.length())
     {
-    case 0: // Nothing to say.
-        return;
+    case 0:
+        break;
 
-    case 1: // Say the character name.
-        say(string[0]);
-        return;
+    case 1:
+        sayChar(string[0]);
+        break;
+
+    default:
+        sayString(string);
+        break;
     }
+    qDebug() << "queueLength = " << queueLength << " isPlaying = " << isPlaying();
 
-    // Say the string here.
-    cancel();
-    const QByteArray data = string.toUtf8();
+    queueLength--;
+    qDebug() << "-ESpeak::doSay, queueLength = " << queueLength << " isPlaying = " << isPlaying();
+}
+
+void ESpeak::sayChar(QChar character)
+{
+    espeak_Char(character.unicode());
+}
+
+void ESpeak::sayString(QString string)
+{
+    QByteArray data = string.toUtf8();
+    data.append((char)0);
     uint uid = 0;
     espeak_Synth(
                 data.constData(),
@@ -88,10 +104,4 @@ void ESpeak::doSay(QString string)
                 &uid,
                 0
                 );
-}
-
-void ESpeak::say(QChar character)
-{
-    cancel();
-    espeak_Char(character.unicode());
 }

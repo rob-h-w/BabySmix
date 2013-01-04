@@ -24,6 +24,7 @@ ContentItem {
     onColorTupleChanged: if (colorTuple !== undefined) color = colorTuple.color
 
     function initialize(){
-        narrator.say(qsTr("%1 %0").format(name, colorTuple.name))
+        var stringToSay = qsTr("%1 %0").arg(name).arg(colorTuple.name)
+        narrator.say(stringToSay)
     }
 }
