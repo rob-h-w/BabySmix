@@ -19,9 +19,12 @@ ESpeak::ESpeak(QObject *parent) :
         QByteArray languageData = language.toAscii();
         QByteArray languages = QByteArray(1, (char)0);
         languageData += languages;
-        voice.languages = languageData.data();
+//        voice.languages = languageData.data();
+        voice.name = 0;
+        voice.gender = 2;
+        voice.age = 20;
         espeak_SetVoiceByProperties(&voice);
-        espeak_SetParameter(espeakRATE, 100, false);
+        espeak_SetParameter(espeakRATE, 175, false);
     }
 
     ++refcount;
