@@ -29,8 +29,7 @@ Rectangle {
     height: childrenRect.height
     x: U.randomMinMax(0, parent.width - width)
     y: U.randomMinMax(0, parent.height - height)
-    onXChanged: console.log("x: " + x)
-    onYChanged: console.log("y: " + y)
+
     color: "transparent"
     states: [
         State {
