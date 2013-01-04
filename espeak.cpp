@@ -3,7 +3,6 @@
 
 #include <QtCore>
 #include <QLocale>
-#include <QDebug>
 
 uint ESpeak::refcount = 0;
 
@@ -67,7 +66,6 @@ bool ESpeak::isPlaying()
 
 void ESpeak::doSay(QString string)
 {
-    qDebug() << "+ESpeak::doSay, queueLength = " << queueLength << " isPlaying = " << isPlaying();
     switch(string.length())
     {
     case 0:
@@ -81,10 +79,8 @@ void ESpeak::doSay(QString string)
         sayString(string);
         break;
     }
-    qDebug() << "queueLength = " << queueLength << " isPlaying = " << isPlaying();
 
     queueLength--;
-    qDebug() << "-ESpeak::doSay, queueLength = " << queueLength << " isPlaying = " << isPlaying();
 }
 
 void ESpeak::sayChar(QChar character)
