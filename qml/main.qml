@@ -24,6 +24,8 @@ Rectangle {
         var object
         if (characterList.indexOf(key) !== -1)
             object = characterComponent.createObject(root, { "text": key })
+        else
+            object = squareComponent.createObject(root)
 
         if (undefined !== object.initialize)
             object.initialize()
@@ -64,6 +66,14 @@ Rectangle {
     Component {
         id: characterComponent
         CharacterItem {
+            x: Math.random() * rootWidth - width/2
+            y: Math.random() * rootHeight - height/2
+        }
+    }
+
+    Component {
+        id: squareComponent
+        SquareItem {
             x: Math.random() * rootWidth - width/2
             y: Math.random() * rootHeight - height/2
         }
