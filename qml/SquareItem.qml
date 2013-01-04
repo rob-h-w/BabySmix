@@ -27,5 +27,7 @@ ShapeItem {
         width: 100 + diff
         height: width
         color: root.color
+        border.width: 1
+        border.color: Qt.black
     }
 }
