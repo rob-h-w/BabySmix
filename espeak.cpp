@@ -16,9 +16,11 @@ ESpeak::ESpeak(QObject *parent) :
         espeak_VOICE voice;
         QString language = QLocale::system().languageToString(QLocale::system().language());
         QByteArray languageData = language.toAscii();
+        languageData.prepend((char)0);
+        languageData.append((char)0);
         QByteArray languages = QByteArray(1, (char)0);
         languageData += languages;
-//        voice.languages = languageData.data();
+        voice.languages = languageData.data();
         voice.name = 0;
         voice.gender = 2;
         voice.age = 20;
