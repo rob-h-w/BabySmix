@@ -34,31 +34,31 @@ function randomColor() {
         returnValue.color = "cyan"
         break
     case 3:
-        returnValue.name = qsTr("darkBlue")
+        returnValue.name = qsTr("dark Blue")
         returnValue.color = "darkBlue"
         break
     case 4:
-        returnValue.name = qsTr("darkCyan")
+        returnValue.name = qsTr("dark Cyan")
         returnValue.color = "darkCyan"
         break
     case 5:
-        returnValue.name = qsTr("darkGray")
+        returnValue.name = qsTr("dark Gray")
         returnValue.color = "darkGray"
         break
     case 6:
-        returnValue.name = qsTr("darkGreen")
+        returnValue.name = qsTr("dark Green")
         returnValue.color = "darkGreen"
         break
     case 7:
-        returnValue.name = qsTr("darkMagenta")
+        returnValue.name = qsTr("dark Magenta")
         returnValue.color = "darkMagenta"
         break
     case 8:
-        returnValue.name = qsTr("darkRed")
+        returnValue.name = qsTr("dark Red")
         returnValue.color = "darkRed"
         break
     case 9:
-        returnValue.name = qsTr("darkYellow")
+        returnValue.name = qsTr("dark Yellow")
         returnValue.color = "darkYellow"
         break
     case 10:
