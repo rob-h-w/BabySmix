@@ -25,10 +25,25 @@ Rectangle {
         if (characterList.indexOf(key) !== -1)
             object = characterComponent.createObject(root, { "text": key })
         else
-            object = squareComponent.createObject(root)
+            object = makeShape()
 
         if (undefined !== object.initialize)
             object.initialize()
+    }
+
+    function makeShape() {
+        var object
+        switch(Math.floor(Math.random() * 1.99))
+        {
+        case 0:
+            object = squareComponent.createObject(root)
+            break;
+        default:
+            object = rectangleComponent.createObject(root)
+            break;
+        }
+
+        return object
     }
 
     property bool started: false
@@ -74,6 +89,14 @@ Rectangle {
     Component {
         id: squareComponent
         SquareItem {
+            x: Math.random() * rootWidth - width/2
+            y: Math.random() * rootHeight - height/2
+        }
+    }
+
+    Component {
+        id: rectangleComponent
+        RectangleItem {
             x: Math.random() * rootWidth - width/2
             y: Math.random() * rootHeight - height/2
         }
