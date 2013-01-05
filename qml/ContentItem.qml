@@ -45,7 +45,7 @@ Rectangle {
             name: "tailOff"
             PropertyChanges { target: root; scale: 0 }
             PropertyChanges { target: root; opacity: 0 }
-            PropertyChanges { target: root; rotation: Math.random() * 180 - 90 }
+            PropertyChanges { target: root; rotation: U.randomPlusMinus(0, 90) }
         }
     ]
 
