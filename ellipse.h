@@ -23,8 +23,8 @@ class Ellipse : public QDeclarativeItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(qreal width READ width WRITE setWidth NOTIFY widthChanged)
-    Q_PROPERTY(qreal height READ height WRITE setHeight NOTIFY heightChanged)
+//    Q_PROPERTY(qreal width READ width WRITE setWidth NOTIFY widthChanged)
+//    Q_PROPERTY(qreal height READ height WRITE setHeight NOTIFY heightChanged)
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 
     QSizeF m_size;
@@ -35,11 +35,11 @@ class Ellipse : public QDeclarativeItem
 public:
     explicit Ellipse(QDeclarativeItem *parent = 0);
 
-    qreal width() const { return m_size.width(); }
-    void setWidth(qreal);
+//    qreal width() const { return m_size.width(); }
+//    void setWidth(qreal);
 
-    qreal height() const { return m_size.height(); }
-    void setHeight(qreal);
+//    qreal height() const { return m_size.height(); }
+//    void setHeight(qreal);
 
     QColor color() const { return m_color; }
     void setColor(const QColor& color);

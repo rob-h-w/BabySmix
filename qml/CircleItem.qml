@@ -28,10 +28,6 @@ ShapeItem {
         width: 100 + diff
         height: width
 
-        color: root.color
-
-        onWidthChanged: console.log("circle width: " + width)
-/*        border.width: 1
-        border.color: "black"*/
+        color: root.colorTuple.color
     }
 }

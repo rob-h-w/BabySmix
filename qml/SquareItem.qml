@@ -22,12 +22,14 @@ ShapeItem {
 
     name: qsTr("Square")
 
+    Component.onCompleted: console.debug("square parent color is "+color)
+
     Rectangle {
         property int diff: U.randomPlusMinus(0, 20)
 
         width: 100 + diff
         height: width
-        color: root.color
+        color: root.colorTuple.color
         border.width: 1
         border.color: "black"
     }

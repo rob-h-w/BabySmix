@@ -28,7 +28,7 @@ ShapeItem {
         width: 100 + diff
         height: 100 - diff
 
-        color: root.color
+        color: root.colorTuple.color
         border.width: 1
         border.color: "black"
     }

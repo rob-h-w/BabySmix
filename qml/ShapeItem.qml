@@ -21,8 +21,6 @@ ContentItem {
     property string name: ""
     property variant colorTuple: U.randomColor()
 
-    onColorTupleChanged: if (colorTuple !== undefined) color = colorTuple.color
-
     function initialize(){
         var stringToSay = qsTr("%1 %0").arg(name).arg(colorTuple.name)
         narrator.say(stringToSay)

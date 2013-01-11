@@ -27,27 +27,27 @@ Ellipse::Ellipse(QDeclarativeItem *parent) :
     setFlag(QGraphicsItem::ItemHasNoContents, false);
 }
 
-void Ellipse::setWidth(qreal width)
-{
-    if (m_size.width() == width)
-        return;
+//void Ellipse::setWidth(qreal width)
+//{
+//    if (m_size.width() == width)
+//        return;
 
-    m_size.setWidth(width);
-    setSize(m_size);
-    update();
-    emit widthChanged();
-}
+//    m_size.setWidth(width);
+//    setSize(m_size);
+//    update();
+//    emit widthChanged();
+//}
 
-void Ellipse::setHeight(qreal height)
-{
-    if (m_size.height() == height)
-        return;
+//void Ellipse::setHeight(qreal height)
+//{
+//    if (m_size.height() == height)
+//        return;
 
-    m_size.setHeight(height);
-    setSize(m_size);
-    update();
-    emit heightChanged();
-}
+//    m_size.setHeight(height);
+//    setSize(m_size);
+//    update();
+//    emit heightChanged();
+//}
 
 void Ellipse::setColor(const QColor &color)
 {
@@ -59,14 +59,16 @@ void Ellipse::setColor(const QColor &color)
     emit colorChanged();
 }
 
-void Ellipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
+void Ellipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    QDeclarativeItem::paint(painter, option, widget);
     QPen pen(m_borderColor, m_borderWidth);
     QBrush brush(m_color);
 
     painter->setBrush(brush);
     painter->setPen(pen);
     painter->setRenderHint(QPainter::Antialiasing, smooth());
+    painter->setBackgroundMode(Qt::TransparentMode);
 
-    painter->drawEllipse(0, 0, m_size.width(), m_size.height());
+    painter->drawEllipse(0, 0, width(), height());
 }
