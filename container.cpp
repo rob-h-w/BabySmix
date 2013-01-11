@@ -15,6 +15,7 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "container.h"
+#include "ellipse.h"
 #include "espeak.h"
 
 #include <QKeyEvent>
@@ -61,6 +62,8 @@ Container::Container(QWidget *parent) :
 
     context->setContextProperty("version", QCoreApplication::applicationVersion());
     context->setContextProperty("narrator", narrator);
+
+    qmlRegisterType<Ellipse>("QtQuick", 1, 0, "Ellipse");
 }
 #if defined(Q_WS_X11)
 #   define Status = OLD_STATUS

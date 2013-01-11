@@ -40,11 +40,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
            container.cpp \
-           espeak.cpp
+           espeak.cpp \
+    ellipse.cpp
 
 HEADERS  += container.h \
             dependencies/speak_lib.h \
-            espeak.h
+            espeak.h \
+    ellipse.h
 
 INCLUDEPATH += dependencies
 

@@ -54,6 +54,8 @@ Rectangle {
     width: rootWidth ? rootWidth : 0
     height: rootHeight ? rootHeight : 0
 
+    Ellipse { smooth: true; color: "red"; width: parent.width; height: parent.height }
+
     MouseArea {
         id:mouseArea
 

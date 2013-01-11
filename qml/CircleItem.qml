@@ -22,11 +22,16 @@ ShapeItem {
 
     name: qsTr("Circle")
 
-    Rectangle {
+    Ellipse {
         property int diff: U.randomPlusMinus(10, 50)
 
         width: 100 + diff
         height: width
-        radius: width/2
+
+        color: root.color
+
+        onWidthChanged: console.log("circle width: " + width)
+/*        border.width: 1
+        border.color: "black"*/
     }
 }
