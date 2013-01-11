@@ -27,28 +27,6 @@ Ellipse::Ellipse(QDeclarativeItem *parent) :
     setFlag(QGraphicsItem::ItemHasNoContents, false);
 }
 
-//void Ellipse::setWidth(qreal width)
-//{
-//    if (m_size.width() == width)
-//        return;
-
-//    m_size.setWidth(width);
-//    setSize(m_size);
-//    update();
-//    emit widthChanged();
-//}
-
-//void Ellipse::setHeight(qreal height)
-//{
-//    if (m_size.height() == height)
-//        return;
-
-//    m_size.setHeight(height);
-//    setSize(m_size);
-//    update();
-//    emit heightChanged();
-//}
-
 void Ellipse::setColor(const QColor &color)
 {
     if (m_color == color)
