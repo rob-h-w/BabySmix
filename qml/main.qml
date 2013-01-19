@@ -33,13 +33,16 @@ Rectangle {
 
     function makeShape() {
         var object
-        switch(Math.floor(Math.random() * 2.99))
+        switch(Math.floor(Math.random() * 3.99))
         {
         case 0:
             object = squareComponent.createObject(root)
             break;
         case 1:
             object = circleComponent.createObject(root)
+            break;
+        case 2:
+            object = ellipseComponent.createObject(root)
             break;
         default:
             object = rectangleComponent.createObject(root)
@@ -96,6 +99,12 @@ Rectangle {
     Component {
         id: rectangleComponent
         RectangleItem {
+        }
+    }
+
+    Component {
+        id: ellipseComponent
+        EllipseItem {
         }
     }
 
