@@ -56,9 +56,9 @@ Rectangle {
             SequentialAnimation {
                 ParallelAnimation {
                     // Visual effects.
-                    NumberAnimation { target: root; property: "scale"; duration: 500; easing.type: Easing.OutElastic }
+                    NumberAnimation { target: root; property: "scale"; duration: 500; easing.type: Easing.InOutElastic }
                     NumberAnimation { target: root; property: "opacity"; duration: 200 }
-                    NumberAnimation { target: root; property: "rotation"; duration: 500 }
+                    NumberAnimation { target: root; property: "rotation"; duration: 500; easing.type: Easing.OutSine }
                 }
                 // Cleanup
                 ScriptAction {

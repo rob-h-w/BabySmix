@@ -25,4 +25,6 @@ ContentItem {
         var stringToSay = qsTr("%1 %0").arg(name).arg(colorTuple.name)
         narrator.say(stringToSay)
     }
+
+    smooth: true
 }

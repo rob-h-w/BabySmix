@@ -29,5 +29,6 @@ ShapeItem {
         height: 100 - diff
 
         color: root.colorTuple.color
+        smooth: parent.smooth
     }
 }

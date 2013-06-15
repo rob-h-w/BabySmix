@@ -30,5 +30,6 @@ ShapeItem {
         color: root.colorTuple.color
         border.width: 1
         border.color: "black"
+        smooth: parent.smooth
     }
 }
